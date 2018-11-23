@@ -1,6 +1,6 @@
-import strutils
+import strutils, strformat
 include utils
-include dna, rna, revc
+include dna, rna, revc, gc
 
 proc solve_dna() =
     let dna = read_strand()
@@ -13,3 +13,9 @@ proc solve_rna() =
 proc solve_revc() =
     let dna = read_strand()
     echo complement_dna(dna)
+
+proc solve_gc() =
+    let strands = read_fasta_strands()
+    let (fasta, gc) = calculate_max_gc_content(strands)
+    echo fmt"{fasta}"
+    echo fmt"{gc}"
