@@ -1,6 +1,6 @@
 import strutils, strformat
 include utils
-include dna, rna, revc, gc, hamm
+include dna, rna, revc, gc, hamm, prot
 
 proc solve_dna() =
     let dna = read_strand()
@@ -25,3 +25,8 @@ proc solve_hamm() =
     let strands = read_strands()
     let point_mutations = calculate_point_mutations(strands[0], strands[1])
     echo point_mutations
+
+proc solve_prot() =
+    let strand = read_strand()
+    let protein = translate_rna_to_protein(strand)
+    echo protein
