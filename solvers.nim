@@ -1,6 +1,6 @@
 import strutils, strformat
 include utils
-include dna, rna, revc, gc
+include dna, rna, revc, gc, hamm
 
 proc solve_dna() =
     let dna = read_strand()
@@ -19,3 +19,9 @@ proc solve_gc() =
     let (fasta, gc) = calculate_max_gc_content(strands)
     echo fmt"{fasta}"
     echo fmt"{gc}"
+
+
+proc solve_hamm() =
+    let strands = read_strands()
+    let point_mutations = calculate_point_mutations(strands[0], strands[1])
+    echo point_mutations

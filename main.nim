@@ -1,6 +1,6 @@
 include solvers
 
 proc main() =
-    solve_gc()
+    solve_hamm()
 
 main()
